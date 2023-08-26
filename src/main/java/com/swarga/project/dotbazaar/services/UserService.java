@@ -15,4 +15,10 @@ public class UserService {
 	{
 		this.userDao.addUser(user);
 	}
+	
+	public User getUserByUseremail(String userEmail)
+	{
+		User user = this.userDao.getUserByUserEmail(userEmail);
+		return user;
+	}
 }

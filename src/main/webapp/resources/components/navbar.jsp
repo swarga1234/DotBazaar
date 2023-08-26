@@ -5,8 +5,19 @@
 		<a href="${pageContext.request.contextPath}/"><span class="icon"><ion-icon
 					name="cart"></ion-icon></span> MyCart</a> <a
 			href="${pageContext.request.contextPath}/"> Home</a> <a href="#">
-			Services</a> <a href="#"> About</a> <a href="#"> Contact</a>
-		<button class="btnLogin-popup">Login</button>
+			Services</a> <a href="#"> About</a>
+		<c:choose>
+			<c:when test="${sessionScope.user!=null}">
+				<a href="#">${sessionScope.user.userName}</a>
+				<a href="${pageContext.request.contextPath}/logout" class=".logout-btn"><button
+						class="btnLogin-popup">Log Out</button></a>
+
+			</c:when>
+			<c:otherwise>
+				<button class="btnLogin-popup">Login</button>
+			</c:otherwise>
+		</c:choose>
+
 	</nav>
 
 	<!-- <nav class="navbar navbar-expand-lg navbar-dark custom-bg">

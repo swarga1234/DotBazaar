@@ -1,5 +1,6 @@
 package com.swarga.project.dotbazaar.dao;
 
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,16 @@ public class UserDaoImpl implements UserDao {
 	public void addUser(User user) {
 		
 		this.hibernateTemplate.save(user);
+	}
+	@Transactional
+	public User getUserByUserEmail(String userEmail) {
+		
+		TypedQuery<User> query = hibernateTemplate.getSessionFactory().getCurrentSession()
+                .createQuery("FROM User u WHERE u.userEmail = :useremail", User.class);
+        query.setParameter("useremail", userEmail);
+        User user = query.getSingleResult();
+		return user;
+
 	}
 
 }

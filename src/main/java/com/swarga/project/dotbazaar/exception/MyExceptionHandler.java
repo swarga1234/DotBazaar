@@ -1,27 +1,33 @@
 package com.swarga.project.dotbazaar.exception;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice
 public class MyExceptionHandler {
 
 	@ExceptionHandler(value=DataIntegrityViolationException.class)
-	public String  exceptionHandlerConstraintViolationException(DataIntegrityViolationException e, RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		redirectAttributes.addFlashAttribute("error", "Error: This Username/ emailID is already registered!!");
-		return "redirect:/";
-
+	@ResponseBody
+	public Map<String,String>  exceptionHandlerConstraintViolationException(DataIntegrityViolationException e) {
+		Map<String,String> response= new HashMap<String, String>();
+		response.put("status", "error");
+		response.put("message", "Error: This Username/ email is already registered!!");
+		return response;
+		
 	}
 	
 	@ExceptionHandler(Exception.class)
-    public String handleGenericException(Exception ex, RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		ex.printStackTrace();
-		redirectAttributes.addFlashAttribute("error", "Error: Unable to Register User!!");
-		return "redirect:/";
+	@ResponseBody
+    public Map<String, String> handleGenericException(Exception ex) {
+		Map<String,String> response= new HashMap<String, String>();
+		response.put("status", "error");
+		response.put("message", "Error: "+ex.getMessage());
+		return response;
 
     }
 }

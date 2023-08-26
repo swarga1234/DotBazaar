@@ -19,8 +19,10 @@
 						Email</label>
 				</div>
 				<div class="input-box">
-					<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-					<input type="password" name="userPassword" required> <label>Password</label>
+					<span class="icon"><a href="javascript:void(0);"
+						id="show-password-login"><ion-icon id="password-icon-login"
+								name="eye-off"></ion-icon></a></span> <input type="password"
+						id="passsword-login" name="userPassword" required> <label>Password</label>
 				</div>
 				<div class="remember-forget">
 					<label><input type="checkbox"> Remember me</label> <a
@@ -63,10 +65,11 @@
 
 
 				<div class="input-box">
-					<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-
-					<input type="password" name="userPassword" maxlength="100" required>
-					<label>Password</label>
+					<span class="icon"><a href="javascript:void(0);"
+						id="show-password-register"><ion-icon
+								id="password-icon-regsiter" name="eye-off"></ion-icon></a></span> <input
+						type="password" id="password-register" name="userPassword"
+						maxlength="100" required> <label>Password</label>
 				</div>
 				<div class="remember-forget">
 					<label><input type="checkbox" required> I agree to
@@ -83,18 +86,18 @@
 		</div>
 
 	</div>
-	<c:if test="${success!=null}">
-		<%@include file="../../resources/components/message-success.jsp"%>
-	</c:if>
-	<c:if test="${error!=null}">
-		<%@include file="../../resources/components/message-error.jsp"%>
-	</c:if>
+	<%@include file="../../resources/components/message-success.jsp"%>
 
+	<%@include file="../../resources/components/message-error.jsp"%>
 
 
 	<iframe name="hidden-iframe" style="display: none;"></iframe>
 
-
+	<div id="session-message"
+		data-message="<%= session.getAttribute("message") %>"></div>
+	<%
+		session.removeAttribute("message");
+	%>
 	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
 </body>
 </html>
