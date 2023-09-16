@@ -21,8 +21,8 @@
 		<div class="categories">
 			<a class="list-group-item list-group-item-action"
 				data-toggle="collapse" href="#categoriesList" aria-expanded="true"
-				aria-controls="categoriesList"><h4>Categories</h4> </a>
-			<div class="collapse" id="categoriesList">
+				aria-controls="categoriesList"><h5>Categories</h5> </a>
+			<div class="collapse show" id="categoriesList">
 				<div class="list-group">
 					<a href="#" class="list-group-item list-group-item-action active">
 						Cras justo odio </a> <a href="#"
@@ -41,8 +41,8 @@
 		<div class="account">
 			<a class="list-group-item list-group-item-action"
 				data-toggle="collapse" href="#account" aria-expanded="true"
-				aria-controls="account"><h4>Help & Settings</h4> </a>
-			<div class="collapse" id="account">
+				aria-controls="account"><h5>Help & Settings</h5> </a>
+			<div class="collapse show" id="account">
 				<div class="list-group">
 					<a href="#" class="list-group-item list-group-item-action">Your
 						Account</a> <a href="#" class="list-group-item list-group-item-action">Customer
