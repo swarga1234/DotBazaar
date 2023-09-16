@@ -1,8 +1,8 @@
-const wrapper= document.querySelector('.wrapper');
-const loginLink= document.querySelector('.login-link');
-const registerLink= document.querySelector('.register-link');
-const loginPopUp= document.querySelector('.btnLogin-popup');
-const close=document.querySelector('.icon-close');
+var wrapper= document.querySelector('.wrapper');
+var loginLink= document.querySelector('.login-link');
+var registerLink= document.querySelector('.register-link');
+var loginPopUp= document.querySelector('.btnLogin-popup');
+var close=document.querySelector('.icon-close');
 
 registerLink.addEventListener('click', ()=>{
 	wrapper.classList.add('active');
@@ -19,15 +19,15 @@ loginPopUp.addEventListener('click', ()=>{
 close.addEventListener('click', ()=>{
 	wrapper.classList.remove('active-popup');
 });
-const blurBackground = document.getElementById("blur-background");
-const popupSuccess = document.getElementById("popup-success");
-const popupError = document.getElementById("popup-error");
-const popupMessageError=document.getElementById("popup-message-error");
-const closePopupSuccess = document.getElementById("close-popup-success");
-const closePopupError = document.getElementById("close-popup-error");
-const signupForm = document.getElementById("signup-form");
-const loginForm= document.getElementById("login-form");
-const popupMessageSuccess = document.getElementById("popup-message-success");
+var blurBackground = document.getElementById("blur-background");
+var popupSuccess = document.getElementById("popup-success");
+var popupError = document.getElementById("popup-error");
+var popupMessageError=document.getElementById("popup-message-error");
+var closePopupSuccess = document.getElementById("close-popup-success");
+var closePopupError = document.getElementById("close-popup-error");
+var signupForm = document.getElementById("signup-form");
+var loginForm= document.getElementById("login-form");
+var popupMessageSuccess = document.getElementById("popup-message-success");
 
 var message = document.getElementById("session-message").getAttribute("data-message");
 
@@ -117,9 +117,9 @@ closePopupError.addEventListener("click", function () {
     blurBackground.style.display = "none";
 });
 
-//  const showPasswordButton = document.querySelector('.show-password');
-//    const passwordInput = document.getElementById("password");
-//     const passwordIcon = document.getElementById("password-icon");
+//  var showPasswordButton = document.querySelector('.show-password');
+//    var passwordInput = document.getElementById("password");
+//     var passwordIcon = document.getElementById("password-icon");
 
 //     showPasswordButton.addEventListener("click", function () {
 //         if (passwordInput.type === "password") {
@@ -133,9 +133,9 @@ closePopupError.addEventListener("click", function () {
 //         }
 //     });
 
-const showPasswordButtonLogin = document.getElementById("show-password-login");
-const passwordLoginInput = document.getElementById("passsword-login");
-const passwordIconLogin= document.getElementById("password-icon-login");
+var showPasswordButtonLogin = document.getElementById("show-password-login");
+var passwordLoginInput = document.getElementById("passsword-login");
+var passwordIconLogin= document.getElementById("password-icon-login");
 
     showPasswordButtonLogin.addEventListener("click", function () {
         if (passwordLoginInput.type === "password") {
@@ -147,9 +147,9 @@ const passwordIconLogin= document.getElementById("password-icon-login");
             passwordIconLogin.setAttribute("name", "eye-off");
         }
     });
-const showPasswordButtonRegister = document.getElementById("show-password-register");
-const passwordRegisterInput = document.getElementById("password-register");
-const passwordIconRegister= document.getElementById("password-icon-regsiter");
+var showPasswordButtonRegister = document.getElementById("show-password-register");
+var passwordRegisterInput = document.getElementById("password-register");
+var passwordIconRegister= document.getElementById("password-icon-regsiter");
 
 showPasswordButtonRegister.addEventListener("click", function () {
         if (passwordRegisterInput.type === "password") {
@@ -161,3 +161,16 @@ showPasswordButtonRegister.addEventListener("click", function () {
             passwordIconRegister.setAttribute("name", "eye-off");
         }
     });
+ 
+ var loginSidebar= document.getElementById("login-sidebar");
+ var blurBackgroundSidebar = document.getElementById("blur-background-sidebar");
+
+ loginSidebar.addEventListener('click', ()=>{
+	if (sidebar.classList.contains('active')) {
+                toggleSidebar();
+                blurBackgroundSidebar.style.display = "none";
+            }
+	wrapper.classList.add('active-popup');
+});
+
+ 

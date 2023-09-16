@@ -30,21 +30,21 @@ public class HomePageController {
 		if(session!=null)
 		{
 			User user=(User) session.getAttribute("user");
-			System.out.println("hello"+user);
 			if(user!=null)
 			{
 				return "redirect:/market-place";
 			}
 		}
-
+		//session.removeAttribute("title");
 		return "index";
 	}
 
 	@RequestMapping(path = "/registration", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> processSignUp(@ModelAttribute User user, RedirectAttributes redirectAttributes)
+	public Map<String, String> processSignUp(@ModelAttribute User user)
 	{
 		Map<String,String> response= new HashMap<String, String>();
+		user.setUserPic("default-profile-pic.png");
 		user.setUserType("Customer");
 		System.out.println(user);
 		if(user.getUserName()!=null && user.getUserEmail()!=null)
@@ -77,7 +77,7 @@ public class HomePageController {
 			User user = this.userService.getUserByUseremail(userEmail);
 			if(user!=null && user.getUserPassword().equals(userPassword))
 			{
-				HttpSession session= request.getSession(false);
+				HttpSession session= request.getSession(true);
 				System.out.println( session.getId());
 				session.setAttribute("user", user);
 				response.put("status", "success");

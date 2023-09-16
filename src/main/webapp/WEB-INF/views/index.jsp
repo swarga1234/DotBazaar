@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%@include file="../../resources/components/navbar.jsp"%>
+	<%@include file="../../resources/components/sideBar.jsp"%>
 	<div class="wrapper">
 		<span class="icon-close"><ion-icon name="close"></ion-icon></span>
 		<div class="form-box login">
@@ -99,5 +100,6 @@
 		session.removeAttribute("message");
 	%>
 	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/sideBar.js"></script>
 </body>
 </html>

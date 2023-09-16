@@ -28,5 +28,10 @@ public class UserDaoImpl implements UserDao {
 		return user;
 
 	}
+	@Transactional
+	public User getUserById(int userId) {
+		User user=this.hibernateTemplate.load(User.class, userId);
+		return user;
+	}
 
 }

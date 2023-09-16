@@ -60,25 +60,11 @@ header {
 	text-decoration: none;
 	font-weight: 100;
 	margin-left: 40px;
-}
-
-.navigation a::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	bottom: -6px;
-	width: 80px;
-	height: 3px;
-	background: #fff;
-	transform-origin: right;
-	transform: scaleX(0);
 	transition: transform .5s;
-	transform: scaleX(0);
 }
 
-.navigation a:hover::after {
-	transform-origin: left;
-	transform: scaleX(1);
+.navigation a:hover {
+	font-size: 1.4em;
 }
 
 .navigation .btnLogin-popup {
@@ -109,7 +95,7 @@ header {
 	background: transparent;
 	border: 2px solid rgba(255, 255, 255, .5);
 	border-radius: 20px;
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(100px);
 	box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 	display: flex;
 	justify-content: center;
@@ -201,10 +187,11 @@ header {
 .input-box input:focus ~label, .input-box input:valid ~label {
 	top: -5px;
 }
-.input-box:focus-within label, .input-box textarea:not(:placeholder-shown) label {
+
+.input-box:focus-within label, .input-box textarea:not(:placeholder-shown) label
+	{
 	top: -5px;
 }
-
 
 .input-box input {
 	width: 100%;
@@ -294,6 +281,28 @@ header {
 .login-register p a:hover {
 	text-decoration: underline;
 }
-.input-box a{
+
+.input-box a {
 	color: #162938;
 }
+
+.profile-button {
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	color: #fff;
+}
+
+/* Styles for the profile picture (replace with your own image URL) */
+.profile-picture {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+/* Styling for the username */
+.username {
+	font-weight: bold;
+}
+

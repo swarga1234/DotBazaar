@@ -1,5 +1,6 @@
 package com.swarga.project.dotbazaar.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,18 +14,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "category_details")
-public class Category {
+public class Category implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 10, name = "category_Id")
 	private int categoryId;
-	@Column(length = 100, name = "category_name")
+	@Column(length = 100, name = "category_name", unique =true)
 	private String categoryName;
 	@Column(length = 100, name = "category_desc")
 	private String categoryDescription;
-	@OneToMany(mappedBy = "category")
-	private List<Product>productList= new ArrayList<Product>();
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}
@@ -46,19 +46,11 @@ public class Category {
 	public void setCategoryDescription(String categoryDescription) {
 		this.categoryDescription = categoryDescription;
 	}
-	
-	public List<Product> getProductList() {
-		return productList;
-	}
-	public void setProductList(List<Product> productList) {
-		this.productList = productList;
-	}
 	@Override
 	public String toString() {
 		return "Category [categoryId=" + categoryId + ", "
 				+ (categoryName != null ? "categoryName=" + categoryName + ", " : "")
-				+ (categoryDescription != null ? "categoryDescription=" + categoryDescription + ", " : "")
-				+ (productList != null ? "productList=" + productList : "") + "]";
+				+ (categoryDescription != null ? "categoryDescription=" + categoryDescription + ", " : "")+"]";
 	}
 	
 	

@@ -21,4 +21,10 @@ public class UserService {
 		User user = this.userDao.getUserByUserEmail(userEmail);
 		return user;
 	}
+	
+	public User getUserById(int userId)
+	{
+		User user = this.userDao.getUserById(userId);
+		return user;
+	}
 }

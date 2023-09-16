@@ -5,15 +5,22 @@
 		<a href="${pageContext.request.contextPath}/"><span class="icon"><ion-icon
 					name="cart"></ion-icon></span> MyCart</a> <a
 			href="${pageContext.request.contextPath}/"> Home</a> <a href="#">
-			Services</a> <a href="#"> About</a>
+			Customer Service</a>
 		<c:choose>
 			<c:when test="${sessionScope.user!=null}">
-				<a href="#">${sessionScope.user.userName}</a>
-				<a href="${pageContext.request.contextPath}/logout" class=".logout-btn"><button
-						class="btnLogin-popup">Log Out</button></a>
+				<%-- <a href="#">${sessionScope.user.userName}</a>
+				<a href="${pageContext.request.contextPath}/logout" class="logout-button"><button
+						class="btnLogin-popup">Log Out</button></a> --%>
+				<%@include file="../../resources/components/profile-tab.jsp"%>
+
 
 			</c:when>
 			<c:otherwise>
+				<a href="#" class="profile-button" onclick="toggleSidebar()"> <img
+					src="${pageContext.request.contextPath}/resources/images/default-profile-pic.png"
+					alt="Profile Picture" class="profile-picture"> <span
+					class="username">Hello, Guest</span>
+				</a>
 				<button class="btnLogin-popup">Login</button>
 			</c:otherwise>
 		</c:choose>

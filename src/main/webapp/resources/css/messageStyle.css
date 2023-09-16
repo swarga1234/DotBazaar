@@ -32,7 +32,7 @@ body {
 	transform: translate(-50%, -50%);
 	padding: 0 30px 30px;
 	background: transparent;
-	z-index: 1000; 
+	z-index: 9999; 
 }
 
 .icon-message {

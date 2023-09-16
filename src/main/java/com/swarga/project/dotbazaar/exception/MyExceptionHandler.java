@@ -24,9 +24,10 @@ public class MyExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
     public Map<String, String> handleGenericException(Exception ex) {
+		ex.printStackTrace();
 		Map<String,String> response= new HashMap<String, String>();
 		response.put("status", "error");
-		response.put("message", "Error: "+ex.getMessage());
+		response.put("message", "Error: Something went wrong!!"+ex.getMessage());
 		return response;
 
     }
