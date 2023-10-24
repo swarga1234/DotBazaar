@@ -6,6 +6,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Product {
 	private String productName;
 	@Column(length = 3000, name = "product_desc")
 	private String productDesc;
-	@ElementCollection()
+	@ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "product_photos", joinColumns = @JoinColumn(name = "product_id"))
 	@Column(name = "photos")
 	private List<String> productPhotos;

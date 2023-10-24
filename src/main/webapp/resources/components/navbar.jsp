@@ -4,13 +4,21 @@
 	<nav class="navigation">
 		<a href="${pageContext.request.contextPath}/"><span class="icon"><ion-icon
 					name="cart"></ion-icon></span> MyCart</a> <a
-			href="${pageContext.request.contextPath}/"> Home</a> <a href="#">
-			Customer Service</a>
+			href="${pageContext.request.contextPath}/"> Home</a>
 		<c:choose>
 			<c:when test="${sessionScope.user!=null}">
 				<%-- <a href="#">${sessionScope.user.userName}</a>
 				<a href="${pageContext.request.contextPath}/logout" class="logout-button"><button
 						class="btnLogin-popup">Log Out</button></a> --%>
+				<c:choose>
+					<c:when test="${sessionScope.user.userType=='Admin'}">
+						<a href="${pageContext.request.contextPath}/admin-page"> Admin
+							Page</a>
+					</c:when>
+				</c:choose>
+
+
+
 				<%@include file="../../resources/components/profile-tab.jsp"%>
 
 

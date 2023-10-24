@@ -45,7 +45,7 @@ signupForm.addEventListener('submit', function(event){
 	var f=$(this).serialize();
 	//console.log(f);
 	$.ajax({
-		url:"registration",
+		url:"/dotbazaar/registration",
 		data:f,
 		type:'POST',
 		success: function(response){
@@ -79,7 +79,7 @@ loginForm.addEventListener('submit',function(event){
 	event.preventDefault();
 	var f=$(this).serialize();
 	$.ajax({
-		url:"login",
+		url:"/dotbazaar/login",
 		data:f,
 		type:'POST',
 		success: function(response){

@@ -125,7 +125,7 @@ public class DataOperationController {
 	public Map<String,String>  exceptionHandlerConstraintViolationException(DataIntegrityViolationException e) {
 		Map<String,String> response= new HashMap<String, String>();
 		response.put("status", "error");
-		response.put("message", "Error: This category already exists!!");
+		response.put("message", "Error: This Item already exists!!");
 		return response;
 
 	}

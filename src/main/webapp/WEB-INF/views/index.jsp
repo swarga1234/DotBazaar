@@ -9,6 +9,7 @@
 <body>
 	<%@include file="../../resources/components/navbar.jsp"%>
 	<%@include file="../../resources/components/sideBar.jsp"%>
+	<%@include file="../../resources/components/product-display.jsp"%>
 	<div class="wrapper">
 		<span class="icon-close"><ion-icon name="close"></ion-icon></span>
 		<div class="form-box login">
@@ -87,6 +88,25 @@
 		</div>
 
 	</div>
+	<br>
+	<footer class="footer">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+				</a></li>
+				<c:forEach begin="1" end="${totalPages}" var="i">
+					<li class="page-item ${i == currentPage ? 'active' : ''}"><a
+						class="page-link" href="items?page=${i}">${i}</a></li>
+				</c:forEach>
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
+						class="sr-only">Next</span>
+				</a></li>
+			</ul>
+		</nav>
+	</footer>
 	<%@include file="../../resources/components/message-success.jsp"%>
 
 	<%@include file="../../resources/components/message-error.jsp"%>
@@ -95,11 +115,14 @@
 	<iframe name="hidden-iframe" style="display: none;"></iframe>
 
 	<div id="session-message"
-		data-message="<%= session.getAttribute("message") %>"></div>
+		data-message="<%=session.getAttribute("message")%>"></div>
 	<%
-		session.removeAttribute("message");
+	session.removeAttribute("message");
 	%>
+
+
 	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/sideBar.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/sideBar.js"></script>
 </body>
 </html>

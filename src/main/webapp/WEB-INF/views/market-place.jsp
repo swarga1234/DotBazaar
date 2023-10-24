@@ -9,9 +9,10 @@
 <body>
 	<%@include file="../../resources/components/navbar.jsp"%>
 	<%@include file="../../resources/components/sideBar.jsp"%>
+	<%@include file="../../resources/components/product-display.jsp"%>
 	<%@include file="../../resources/components/message-success.jsp"%>
+
 	<%@include file="../../resources/components/message-error.jsp"%>
 	<script src="${pageContext.request.contextPath}/resources/js/sideBar.js"></script>
-	
 </body>
 </html>
