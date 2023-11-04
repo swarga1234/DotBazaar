@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.swarga.project.dotbazaar.dao.CategoryDao;
 import com.swarga.project.dotbazaar.entities.Category;
 import com.swarga.project.dotbazaar.entities.User;
 import com.swarga.project.dotbazaar.services.CategoryService;
@@ -88,7 +87,15 @@ public class WelcomePageController {
 		session.setAttribute("title","Market Place");
 		List<Category> allCategories = this.categoryService.getAllcategories();
 		session.setAttribute("categories", allCategories);
-		session.setAttribute("products", this.productService.getProductsByCategory(categoryId));
+		String pageNo=request.getParameter("page");
+		int pageNumber=1;
+		if(pageNo!=null)
+		{
+			pageNumber=Integer.parseInt(pageNo);
+		}
+		
+		request.setAttribute("products",this.productService.getProductsByCategory(categoryId,pageNumber,3));
+		request.setAttribute("totalPages", Math.ceil((double)this.productService.getProductsByCategoryCount(categoryId)/3));
 		return "market-place";
 	}
 	@RequestMapping(path = "/logout")

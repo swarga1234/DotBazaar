@@ -8,14 +8,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.swarga.project.dotbazaar.entities.User;
 import com.swarga.project.dotbazaar.services.CategoryService;
@@ -119,10 +117,17 @@ public class HomePageController {
 			}
 		}
 		//session.removeAttribute("title");
+		String pageNo=request.getParameter("page");
+		int pageNumber=1;
+		if(pageNo!=null)
+		{
+			pageNumber=Integer.parseInt(pageNo);
+		}
+		
 		request.setAttribute("categories", this.categoryService.getAllcategories());
-		request.setAttribute("products",this.productService.getProductsByCategory(categoryId));
-		//System.out.println(Math.ceil((double)this.productService.getProductsByCategory(categoryId).size()/4));
-		request.setAttribute("totalPages", Math.ceil((double)this.productService.getProductsByCategory(categoryId).size()/4));
+		request.setAttribute("products",this.productService.getProductsByCategory(categoryId,pageNumber,3));
+		//System.out.println("Pages:"+Math.ceil((double)this.productService.getProductsByCategoryCount(categoryId)/2));
+		request.setAttribute("totalPages", Math.ceil((double)this.productService.getProductsByCategoryCount(categoryId)/3));
 		if(session!=null)
 		{
 			if(categoryId==null)

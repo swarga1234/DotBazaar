@@ -90,22 +90,7 @@
 	</div>
 	<br>
 	<footer class="footer">
-		<nav aria-label="Page navigation example">
-			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link" href="#"
-					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-						<span class="sr-only">Previous</span>
-				</a></li>
-				<c:forEach begin="1" end="${totalPages}" var="i">
-					<li class="page-item ${i == currentPage ? 'active' : ''}"><a
-						class="page-link" href="items?page=${i}">${i}</a></li>
-				</c:forEach>
-				<li class="page-item"><a class="page-link" href="#"
-					aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
-						class="sr-only">Next</span>
-				</a></li>
-			</ul>
-		</nav>
+		<%@include file="../../resources/components/pagination.jsp"%>
 	</footer>
 	<%@include file="../../resources/components/message-success.jsp"%>
 

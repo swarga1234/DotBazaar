@@ -13,6 +13,10 @@
 	<%@include file="../../resources/components/message-success.jsp"%>
 
 	<%@include file="../../resources/components/message-error.jsp"%>
+	<footer class="footer">
+		<%@include file="../../resources/components/pagination.jsp"%>
+	</footer>
+	
 	<script src="${pageContext.request.contextPath}/resources/js/sideBar.js"></script>
 </body>
 </html>

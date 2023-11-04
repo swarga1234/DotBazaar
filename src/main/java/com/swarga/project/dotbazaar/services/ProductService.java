@@ -13,27 +13,43 @@ public class ProductService {
 
 	@Autowired
 	private ProductDao productDao;
-	
+
 	public void saveProduct(Product product)
 	{
 		this.productDao.addProduct(product);
 	}
-	
-	public List<Product> getAllProducts(){
-		return this.productDao.getAllProducts();
+
+	public Long getAllProductsCount(){
+		return this.productDao.getAllProductsCount();
 	}
-	
-	public List<Product> getProductsByCategory(String categoryId){
-		
+
+	public Long getProductsByCategoryCount(String categoryId){
+
 		if((categoryId!=null && !categoryId.equals("null")) && !categoryId.trim().equals("all"))
 		{
 			System.out.println(categoryId);
 			int cid=Integer.parseInt(categoryId);
-			return this.productDao.getProductsByCategory(cid);
+			return this.productDao.getProductsByCategoryCount(cid);
 		}
 		else
 		{
-			return getAllProducts();
+			return getAllProductsCount();
+
+		}
+	}
+
+	public List<Product> getProductsByCategory(String categoryId, int pageNo, int pageSize){
+
+		if((categoryId!=null && !categoryId.equals("null")) && !categoryId.trim().equals("all"))
+		{
+			System.out.println(categoryId);
+			int cid=Integer.parseInt(categoryId);
+			return this.productDao.getProductsByCategoryAsPage(cid, pageNo, pageSize);
+		}
+		else
+		{
+			return this.productDao.getAllProductsAsPage(pageNo, pageSize);
+
 		}
 	}
 }
